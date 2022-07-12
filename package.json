@@ -25,6 +25,7 @@
     "@types/express": "^4.17.13",
     "@types/jasmine": "^4.0.3",
     "@types/node": "^18.0.3",
+    "@types/sharp": "^0.30.4",
     "eslint": "^8.19.0",
     "eslint-config-prettier": "^8.5.0",
     "jasmine-spec-reporter": "^7.0.0",
