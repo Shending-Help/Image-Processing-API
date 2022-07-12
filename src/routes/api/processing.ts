@@ -1,18 +1,23 @@
 import express from "express";
 import sharp from "sharp";
-import { promises as fsPromises } from "fs";
+//import { promises as fsPromises } from "fs";
 
 const processing = express.Router();
 
-const inputFile = "images/fjord.jpg";
-const outputFile = inputFile.substring(7);
+//const inputFile = "images/fjord.jpg";
+//const outputFile = inputFile.substring(7);
 
 processing.get("/", (req, res) => {
   res.send("resizing your picture xD");
 
+  const inputFile = "images/" + req.query.filename;
+  const outputFile = inputFile.substring(7);
+  const width = Number(req.query.width);
+  const height = Number(req.query.height);
+
   sharp(inputFile)
-    .resize(200, 200)
-    .toFile("output/200_200_" + outputFile, function(err) {});
+    .resize((width as unknown) as number, (height as unknown) as number)
+    .toFile(`output/${width}_${height}_` + outputFile, function(err) {});
 });
 
 export default processing;
