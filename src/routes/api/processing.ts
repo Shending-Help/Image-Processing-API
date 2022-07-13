@@ -15,7 +15,9 @@ processing.get("/", (req, res) => {
   const height = Number(req.query.height);
 
   sharp(inputFile)
-    .resize((width as unknown) as number, (height as unknown) as number)
+    .resize((width as unknown) as number, (height as unknown) as number, {
+      fit: "fill",
+    })
     .toFile(`output/${width}_${height}_` + outputFile, function(err) {})
     .toBuffer()
     .then((data) => {
@@ -24,6 +26,9 @@ processing.get("/", (req, res) => {
           __dirname + `../../../../output/${width}_${height}_` + outputFile
         )
       );
+    })
+    .catch((err) => {
+      res.send("image couldn't be retreived: " + err);
     });
 });
 

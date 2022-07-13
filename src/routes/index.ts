@@ -1,5 +1,5 @@
 import processing from "./api/processing";
-import searcher from "./api/searcher";
+//import searcher from "./api/searcher";
 import express from "express";
 
 const fs = require("fs");
@@ -10,6 +10,6 @@ routes.get("/", (req, res) => {
   res.send("kosom main route");
 });
 
-routes.use("/processing", processing, searcher);
+routes.use("/processing", processing);
 //routes.use("/processing", searcher);
 export default routes;
