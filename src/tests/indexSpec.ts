@@ -3,9 +3,8 @@ import app from "..";
 
 const request = supertest(app);
 describe("Test endpoint responses", () => {
-  it("gets the api endpoint", async (done) => {
+  it("the main route is working properly", async () => {
     const response = await request.get("/api");
     expect(response.status).toBe(200);
-    done();
   });
 });

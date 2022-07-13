@@ -43,7 +43,7 @@ var supertest_1 = __importDefault(require("supertest"));
 var __1 = __importDefault(require(".."));
 var request = (0, supertest_1.default)(__1.default);
 describe("Test endpoint responses", function () {
-    it("gets the api endpoint", function (done) { return __awaiter(void 0, void 0, void 0, function () {
+    it("the main route is working properly", function () { return __awaiter(void 0, void 0, void 0, function () {
         var response;
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -51,7 +51,6 @@ describe("Test endpoint responses", function () {
                 case 1:
                     response = _a.sent();
                     expect(response.status).toBe(200);
-                    done();
                     return [2 /*return*/];
             }
         });
