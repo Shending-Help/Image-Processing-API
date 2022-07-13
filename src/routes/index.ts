@@ -7,7 +7,7 @@ const fs = require("fs");
 const routes = express.Router();
 
 routes.get("/", (req, res) => {
-  res.send("kosom main route");
+  res.send("main route");
 });
 
 routes.use("/processing", processing);

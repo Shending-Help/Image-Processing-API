@@ -9,7 +9,7 @@ var express_1 = __importDefault(require("express"));
 var fs = require("fs");
 var routes = express_1.default.Router();
 routes.get("/", function (req, res) {
-    res.send("kosom main route");
+    res.send("main route");
 });
 routes.use("/processing", processing_1.default);
 //routes.use("/processing", searcher);
