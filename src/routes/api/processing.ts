@@ -21,7 +21,7 @@ processing.get("/", (req, res) => {
     "fjord.jpg",
     "icelandwaterfall.jpg",
     "palmtunnel.jpg",
-    "santamonica.jpg",
+    "santamonica.jpg"
   ];
 
   if (

@@ -8,7 +8,7 @@ const resize = (
 ) => {
   return sharp(inputFile)
     .resize((width as unknown) as number, (height as unknown) as number, {
-      fit: "fill",
+      fit: "fill"
     })
     .toFile(outputFile, function(err) {
       console.log(err);

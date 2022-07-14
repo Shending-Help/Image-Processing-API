@@ -1,8 +1,5 @@
 import processing from "./api/processing";
-//import searcher from "./api/searcher";
 import express from "express";
-
-const fs = require("fs");
 
 const routes = express.Router();
 
