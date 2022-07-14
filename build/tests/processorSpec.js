@@ -39,10 +39,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var supertest_1 = __importDefault(require("supertest"));
+//import supertest from "supertest";
 var processor_1 = __importDefault(require("../middleware/processor"));
-var request = (0, supertest_1.default)(processor_1.default);
-describe("Test Image Processor", function (done) {
+describe("Test Image Processor", function () {
     it("gets the api endpoint", function (done) {
         expect(function () { return __awaiter(void 0, void 0, void 0, function () {
             return __generator(this, function (_a) {
@@ -56,5 +55,4 @@ describe("Test Image Processor", function (done) {
         }); }).not.toThrow();
         done();
     });
-    done();
 });

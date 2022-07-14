@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
 var processor_1 = __importDefault(require("../../middleware/processor"));
 var path_1 = __importDefault(require("path"));
-var fs = require("fs");
+var fs_1 = __importDefault(require("fs"));
 //import { promises as fsPromises } from "fs";
 var processing = express_1.default.Router();
 //const inputFile = "images/fjord.jpg";
@@ -22,7 +22,7 @@ processing.get("/", function (req, res) {
         "fjord.jpg",
         "icelandwaterfall.jpg",
         "palmtunnel.jpg",
-        "santamonica.jpg",
+        "santamonica.jpg"
     ];
     if (isNaN(Number(req.query.width)) ||
         isNaN(Number(req.query.height)) ||
@@ -30,9 +30,8 @@ processing.get("/", function (req, res) {
         res.send("incorrect width, height or filename");
     }
     else {
-        fs.access(outputFile, function (err) {
+        fs_1.default.access(outputFile, function (err) {
             if (err) {
-                console.log("the error was: " + err);
                 (0, processor_1.default)(inputFile, width, height, outputFile).then(function () {
                     res.sendFile(path_1.default.normalize(__dirname + "../../../../" + outputFile));
                 });

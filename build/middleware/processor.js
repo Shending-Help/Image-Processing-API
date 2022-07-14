@@ -7,7 +7,7 @@ var sharp_1 = __importDefault(require("sharp"));
 var resize = function (inputFile, width, height, outputFile) {
     return (0, sharp_1.default)(inputFile)
         .resize(width, height, {
-        fit: "fill",
+        fit: "fill"
     })
         .toFile(outputFile, function (err) {
         console.log(err);
