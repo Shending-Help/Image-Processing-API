@@ -42,7 +42,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var supertest_1 = __importDefault(require("supertest"));
 var __1 = __importDefault(require(".."));
 var request = (0, supertest_1.default)(__1.default);
-describe("Test endpoint responses", function () {
+describe("Test entrypoint responses", function () {
     it("the main route is working properly", function () { return __awaiter(void 0, void 0, void 0, function () {
         var response;
         return __generator(this, function (_a) {

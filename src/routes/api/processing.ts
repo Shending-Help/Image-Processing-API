@@ -2,16 +2,12 @@ import express from "express";
 import resize from "../../middleware/processor";
 import path from "path";
 import fs from "fs";
-//import { promises as fsPromises } from "fs";
 
 const processing = express.Router();
 
-//const inputFile = "images/fjord.jpg";
-//const outputFile = inputFile.substring(7);
-
 processing.get("/", (req, res) => {
   const inputFile = "images/" + req.query.filename;
-  //const outputFile = inputFile.substring(7);
+
   const width = Number(req.query.width);
   const height = Number(req.query.height);
   const outputFile = `output/${width}_${height}_` + req.query.filename;
@@ -21,7 +17,7 @@ processing.get("/", (req, res) => {
     "fjord.jpg",
     "icelandwaterfall.jpg",
     "palmtunnel.jpg",
-    "santamonica.jpg"
+    "santamonica.jpg",
   ];
 
   if (

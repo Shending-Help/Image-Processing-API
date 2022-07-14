@@ -7,13 +7,9 @@ var express_1 = __importDefault(require("express"));
 var processor_1 = __importDefault(require("../../middleware/processor"));
 var path_1 = __importDefault(require("path"));
 var fs_1 = __importDefault(require("fs"));
-//import { promises as fsPromises } from "fs";
 var processing = express_1.default.Router();
-//const inputFile = "images/fjord.jpg";
-//const outputFile = inputFile.substring(7);
 processing.get("/", function (req, res) {
     var inputFile = "images/" + req.query.filename;
-    //const outputFile = inputFile.substring(7);
     var width = Number(req.query.width);
     var height = Number(req.query.height);
     var outputFile = "output/".concat(width, "_").concat(height, "_") + req.query.filename;
@@ -22,7 +18,7 @@ processing.get("/", function (req, res) {
         "fjord.jpg",
         "icelandwaterfall.jpg",
         "palmtunnel.jpg",
-        "santamonica.jpg"
+        "santamonica.jpg",
     ];
     if (isNaN(Number(req.query.width)) ||
         isNaN(Number(req.query.height)) ||
