@@ -1,7 +1,5 @@
-import supertest from "supertest";
+//import supertest from "supertest";
 import resize from "../middleware/processor";
-
-const request = supertest(resize);
 
 describe("Test Image Processor", (): void => {
   it("gets the api endpoint", (done) => {

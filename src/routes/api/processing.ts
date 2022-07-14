@@ -1,7 +1,7 @@
 import express from "express";
 import resize from "../../middleware/processor";
 import path from "path";
-const fs = require("fs");
+import fs from "fs";
 //import { promises as fsPromises } from "fs";
 
 const processing = express.Router();
@@ -31,9 +31,8 @@ processing.get("/", (req, res) => {
   ) {
     res.send("incorrect width, height or filename");
   } else {
-    fs.access(outputFile, (err: any) => {
+    fs.access(outputFile, (err: unknown) => {
       if (err) {
-        console.log("the error was: " + err);
         resize(inputFile, width, height, outputFile).then(() => {
           res.sendFile(path.normalize(__dirname + `../../../../` + outputFile));
         });
