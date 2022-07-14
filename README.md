@@ -12,4 +12,4 @@ endpoints:
 
 the localhost:3000/api/processing/ takes different query parameters namely filename, width and height
 
-example of a url : localhost:3000/api/processing/?filename=fjord.jpg&width=100&height=100
+example of a url : http://localhost:3000/api/processing/?filename=fjord.jpg&width=100&height=100
