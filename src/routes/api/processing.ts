@@ -1,5 +1,5 @@
 import express from "express";
-import sharp from "sharp";
+import resize from "../../middleware/processor";
 import path from "path";
 const fs = require("fs");
 //import { promises as fsPromises } from "fs";
@@ -34,22 +34,9 @@ processing.get("/", (req, res) => {
     fs.access(outputFile, (err: any) => {
       if (err) {
         console.log("the error was: " + err);
-        sharp(inputFile)
-          .resize((width as unknown) as number, (height as unknown) as number, {
-            fit: "fill",
-          })
-          .toFile(outputFile, function(err) {
-            console.log(err);
-          })
-          .toBuffer()
-          .then(() => {
-            res.sendFile(
-              path.normalize(__dirname + `../../../../` + outputFile)
-            );
-          })
-          .catch((err) => {
-            res.send("image couldn't be retreived: " + err);
-          });
+        resize(inputFile, width, height, outputFile).then(() => {
+          res.sendFile(path.normalize(__dirname + `../../../../` + outputFile));
+        });
       } else {
         res.sendFile(path.normalize(__dirname + `../../../../` + outputFile));
       }

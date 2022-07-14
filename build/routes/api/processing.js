@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
-var sharp_1 = __importDefault(require("sharp"));
+var processor_1 = __importDefault(require("../../middleware/processor"));
 var path_1 = __importDefault(require("path"));
 var fs = require("fs");
 //import { promises as fsPromises } from "fs";
@@ -33,19 +33,8 @@ processing.get("/", function (req, res) {
         fs.access(outputFile, function (err) {
             if (err) {
                 console.log("the error was: " + err);
-                (0, sharp_1.default)(inputFile)
-                    .resize(width, height, {
-                    fit: "fill",
-                })
-                    .toFile(outputFile, function (err) {
-                    console.log(err);
-                })
-                    .toBuffer()
-                    .then(function () {
+                (0, processor_1.default)(inputFile, width, height, outputFile).then(function () {
                     res.sendFile(path_1.default.normalize(__dirname + "../../../../" + outputFile));
-                })
-                    .catch(function (err) {
-                    res.send("image couldn't be retreived: " + err);
                 });
             }
             else {
