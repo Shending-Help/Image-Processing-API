@@ -1,15 +1,8 @@
-//import supertest from "supertest";
 import resize from "../middleware/processor";
-
+//this suite tests the image processor
 describe("Test Image Processor", (): void => {
-  /*
-  it("gets the api endpoint", () => {
-    expect(async () => {
-      await resize("images/fjord.jpg", 200, 200, "output/200_200_fjord.jpg");
-    }).not.toThrow();
-  });
-  */
-  it("the function is working properly", () => {
+  //this test tests the resize function in the processor.ts file
+  it("the function is working properly", (): void => {
     expect(resize("images/fjord.jpg", 200, 200, "output/200_200_fjord.jpg"))
       .toBeTruthy;
   });

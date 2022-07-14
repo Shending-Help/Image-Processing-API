@@ -10,5 +10,4 @@ routes.get("/", function (req, res) {
     res.send("main route");
 });
 routes.use("/processing", processing_1.default);
-//routes.use("/processing", searcher);
 exports.default = routes;
